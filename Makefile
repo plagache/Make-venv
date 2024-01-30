@@ -38,4 +38,4 @@ fclean: clean
 re: fclean install run
 
 .SILENT:
-.PHONY: venv upgrade pip_upgrade list version install run clean fclean
+.PHONY: install venv pip_upgrade list version upgrade run clean fclean re
