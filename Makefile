@@ -7,7 +7,9 @@ ACTIVATE = ${BIN}/activate
 
 PROGRAM =
 
-install: venv pip_upgrade
+setup: venv pip_upgrade install
+
+install:
 	${PIP} install -e .
 
 venv:
@@ -35,7 +37,7 @@ fclean: clean
 	rm -rf ${VENV}
 	rm -rf activate
 
-re: fclean install run
+re: fclean setup run
 
 .SILENT:
-.PHONY: install venv pip_upgrade list version upgrade run clean fclean re
+.PHONY: setup install venv pip_upgrade list version upgrade run clean fclean re
