@@ -1,2 +1,2 @@
-# Make_Venv_Great_Again
+# Makefile Virtual Environment
 A Makefile example of a virtual environment in Python
