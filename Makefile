@@ -35,6 +35,7 @@ version:
 	${PYTHON} --version
 
 size:
+	du -hd 0
 	du -hd 0 ${VENV}
 
 run:
