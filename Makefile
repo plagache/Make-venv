@@ -1,3 +1,4 @@
+# Variables
 SYSTEM_PYTHON = /usr/bin/python3
 VENV = .venv
 BIN = ${VENV}/bin
@@ -9,6 +10,8 @@ PROGRAM =
 
 # ARGUMENTS =
 
+
+# Setup
 setup: venv pip_upgrade install
 
 venv:
@@ -28,6 +31,8 @@ module: setup.py
 requirements: requirements.txt
 	${PIP} install -r requirements.txt --upgrade
 
+
+# Info
 list:
 	${PIP} list
 
@@ -38,10 +43,14 @@ size:
 	du -hd 0
 	du -hd 0 ${VENV}
 
+
+# Run
 run:
 	${PYTHON} ${PROGRAM} \
 	# ${ARGUMENTS}
 
+
+# Clean
 clean:
 
 fclean: clean
