@@ -1,4 +1,6 @@
-# Variables
+#------------------------------------------------#
+#   VARIABLES                                    #
+#------------------------------------------------#
 SYSTEM_PYTHON = /usr/bin/python3
 VENV = .venv
 BIN = ${VENV}/bin
@@ -10,8 +12,9 @@ PROGRAM =
 
 # ARGUMENTS =
 
-
-# Setup
+#------------------------------------------------#
+#   SETUP                                        #
+#------------------------------------------------#
 setup: venv pip_upgrade install
 
 venv:
@@ -32,7 +35,9 @@ requirements: requirements.txt
 	${PIP} install -r requirements.txt --upgrade
 
 
-# Info
+#------------------------------------------------#
+#   INFO                                         #
+#------------------------------------------------#
 list:
 	${PIP} list
 
@@ -44,6 +49,9 @@ size:
 	du -hd 0 ${VENV}
 
 
+#------------------------------------------------#
+#   RECIPES                                      #
+#------------------------------------------------#
 # Run
 run:
 	${PYTHON} ${PROGRAM} \
@@ -59,5 +67,8 @@ fclean: clean
 
 re: fclean setup run
 
+#------------------------------------------------#
+#   SPEC                                         #
+#------------------------------------------------#
 .SILENT:
 .PHONY: setup venv pip_upgrade install module requirements list version run clean fclean re
