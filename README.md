@@ -1,5 +1,5 @@
 # Makefile Virtual Environment
-A Makefile template for python developpement
+A Makefile template for python development
 
 ## Installation and dependencies
 You need [uv](https://github.com/astral-sh/uv?tab=readme-ov-file#uv) and make
