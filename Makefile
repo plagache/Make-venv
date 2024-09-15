@@ -1,11 +1,10 @@
 #------------------------------------------------#
 #   VARIABLES                                    #
 #------------------------------------------------#
-SYSTEM_PYTHON = /usr/bin/python3
+PYTHON_VERSION = 3.12
 VENV = .venv
 BIN = ${VENV}/bin
-PYTHON = ${BIN}/python3
-PIP = ${BIN}/pip
+PYTHON = ${BIN}/python
 ACTIVATE = ${BIN}/activate
 
 PROGRAM =
@@ -18,31 +17,34 @@ PROGRAM =
 setup: venv pip_upgrade install
 
 venv:
-	${SYSTEM_PYTHON} -m venv ${VENV}
+	uv venv --python ${PYTHON_VERSION} ${VENV}
 	ln -sf ${ACTIVATE} activate
 
+uv_upgrade:
+	uv self update
+
 pip_upgrade:
-	${PIP} install --upgrade pip
+	uv pip install --upgrade pip
 
 install: \
 	requirements \
 	module \
 #
 module: setup.py
-	${PIP} install -e . --upgrade
+	uv pip install -e . --upgrade
 
 requirements: requirements.txt
-	${PIP} install -r requirements.txt --upgrade
+	uv pip install -r requirements.txt --upgrade
 
 
 #------------------------------------------------#
 #   INFO                                         #
 #------------------------------------------------#
 list:
-	${PIP} list
+	uv pip list
 
 version:
-	${PYTHON} --version
+	uv python list
 
 size:
 	du -hd 0
@@ -71,4 +73,4 @@ re: fclean setup run
 #   SPEC                                         #
 #------------------------------------------------#
 .SILENT:
-.PHONY: setup venv pip_upgrade install module requirements list version run clean fclean re
+.PHONY: setup venv uv_upgrade pip_upgrade install module requirements list version size run clean fclean re
