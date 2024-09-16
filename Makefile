@@ -17,7 +17,7 @@ PROGRAM =
 setup: venv pip_upgrade install
 
 venv:
-	uv venv --python ${PYTHON_VERSION} ${VENV}
+	uv venv --python ${PYTHON_VERSION} ${VENV} --seed
 	ln -sf ${ACTIVATE} activate
 
 uv_upgrade:
@@ -30,11 +30,11 @@ install: \
 	requirements \
 	module \
 #
-module: setup.py
-	uv pip install -e . --upgrade
-
 requirements: requirements.txt
 	uv pip install -r requirements.txt --upgrade
+
+module: setup.py
+	uv pip install -e . --upgrade
 
 
 #------------------------------------------------#
