@@ -1,15 +1,15 @@
 #------------------------------------------------#
 #   VARIABLES                                    #
 #------------------------------------------------#
-PYTHON_VERSION = 3.12
-VENV = .venv
-BIN = ${VENV}/bin
-PYTHON = ${BIN}/python
-ACTIVATE = ${BIN}/activate
+PYTHON_VERSION=3.12
+VENV=.venv
+BIN=${VENV}/bin
+PYTHON=${BIN}/python
+ACTIVATE=${BIN}/activate
 
-PROGRAM =
+PROGRAM=
 
-# ARGUMENTS =
+# ARGUMENTS=
 
 
 #------------------------------------------------#
